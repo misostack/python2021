@@ -288,6 +288,13 @@ def example_010():
 	# map
 	new_l = list(map(lambda x: x*2, my_list))
 	print(new_l)
+	# module
+	import config;
+	import loader;
+	from math import pi, e
+
+	print("BASE_URL={}\nENV={}".format(config.BASE_URL, config.ENV))
+	print(pi, e)
     
 def hello(*names):
 	for name in names:
