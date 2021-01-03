@@ -127,6 +127,8 @@ def example_007():
 	print(uniqueValues)
 	# dict
 	obj = { 1: 'asda', 'name': 'something', 'value': 1.5e3, 'isValid': False}
+	for k in obj:
+		print("{} = {}".format(k, obj[k]))
 	print(obj)
 	# conversion
 	n = "25"
@@ -210,6 +212,92 @@ def example_008():
 	for x in arr:
 		print(x)
 
+def example_009():
+	numbers = range(1,11)
+	sum = 0
+	area = 1
+	a_str = ""
+	b_str = ""
+	for i in range(len(numbers)):
+		sum += numbers[i]			
+		a_str += str(numbers[i]) + (" = " if i == len(numbers) - 1 else " + ")
+	for i in range(len(numbers)):
+		area *= numbers[i]
+		b_str += str(numbers[i]) + ((" * "," = ")[ i == len(numbers) - 1])
+	print("{}{}".format(a_str, sum))
+	print("{}{}".format(b_str, area))
+	# program to display student's marks from record
+	student_name = 'Soyuj'
+
+	marks = {'James': 90, 'Jules': 55, 'Arthur': 77} # dictionary
+
+	for student in marks:
+	    if student == student_name:
+	        print(marks[student])
+	        break
+	else:
+	    print('No entry with that name found.')	
+
+	digits = [0, 1, 5]
+
+	for i in digits:
+	    print(i)
+	else:
+	    print("No items left.")
+
+	n = 10
+
+	# initialize sum and counter
+	sum = 0
+	i = 1
+
+	while i <= n:
+	    sum = sum + i
+	    i = i+1    # update counter
+
+	# print the sum
+	print("The sum is", sum)	    
+
+	for val in "string":
+	    if val == "i":
+	        break
+	    print(val)
+
+	print("The end")
+
+	sequence = {'p', 'a', 's', 's'}
+	for val in sequence:
+	    pass	
+
+def example_010():
+	def greet(first_name, last_name, others=""):
+		print("Hello {first_name} {last_name} {others}".format(first_name=first_name, last_name=last_name, others=others))
+	greet("Python3", "Tutorial")
+	greet(last_name = "The tutorial", first_name = "Python3")
+	greet("Python3", others="test", last_name = "The tutorial")
+	hello("PHP7", "Python3", "Golang", "Javascript", "Ruby")
+	num = 10
+	print("{}! = {}".format(num,factorial(num)))
+	# lambda/ anonymous function
+	double = lambda x: x * 2
+	print("double({}) = {}".format(num, double(num)))
+	# filter
+	my_list = [1, 5, 4, 6, 8, 11, 3, 12]
+	new_list = list(filter(lambda x: (x%2==0), my_list))
+	print(new_list)
+	# map
+	new_l = list(map(lambda x: x*2, my_list))
+	print(new_l)
+    
+def hello(*names):
+	for name in names:
+		print("Hello", name)
+
+
+def factorial(x):
+	if x == 1:
+		return x
+	return x * factorial(x - 1)
 
 def isPrime(n):
 	if n == 1 or n == 2: return True
@@ -243,4 +331,6 @@ if __name__ == '__main__':
     example_006()
     example_007()
     example_008()
+    example_009()
+    example_010()
 # See PyCharm help at https://www.jetbrains.com/help/pycharm/
