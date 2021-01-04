@@ -374,6 +374,29 @@ def example_013():
 		return new_arr
 	print(remove_duplicate_values(arr))
 
+	# animals list
+	animals = ['cat', 'dog', 'rabbit', 'guinea pig']
+
+	# 'rabbit' is removed
+	animals.remove('rabbit')
+
+	# Updated animals List
+	print('Updated animals list: ', animals)
+	try:
+		if(animals.index('rabbit')):
+			animals.remove('rabbit')				
+		print(animals)
+	except Exception as e:
+		print(e)
+
+	s = ['I', 'want', 4, 'apples', 'and', 18, 'bananas'] 
+	str1 = ""
+	print(str1.join([str(elem) for elem in s]))
+	s = ' '.join(map(str, s))
+	numbers = [1,2,3,4]
+
+	print(s)
+
 def hello(*names):
 	for name in names:
 		print("Hello", name)
