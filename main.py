@@ -296,6 +296,84 @@ def example_010():
 	print("BASE_URL={}\nENV={}".format(config.BASE_URL, config.ENV))
 	print(pi, e)
     
+def example_011():
+	"""
+	File I/O:
+	- Open a file
+	- Read or write
+	- Close the file
+	Numbers:
+	- Random number
+	"""	
+	import re
+	try:
+		def splitLine(line):
+			s = re.search("(This is line )(\d*)", line)
+			"""
+			s[0]:full
+			s[1]:group1
+			s[2]:group2
+			"""
+			if s:
+				return int(s[2])
+			return 0
+		# mode: r : read, w: write, a:append, b:binary, t:text
+		# open
+		file = './tmp/test.txt'
+		with open(file, 'r+t') as f:
+			# sum
+			sum = 0
+			lines = f.readlines()		
+			for line in lines:
+				sum += int(splitLine(line))				
+		f = open(file, 'a+t')
+		f.write("SUM {}\n".format(sum))
+		for x in range(0,10):
+			f.write("This is line {}\n".format(x + 1))
+		# close
+		f.close()
+	except Exception as e:		
+		raise
+	finally:
+		pass
+
+def example_012():
+	import random
+	print(random.randrange(10,20))
+	x = ['red','green','blue','yellow','gray']
+	print(random.choice(x))
+	# shuffle
+	random.shuffle(x)
+	print(x)
+	# list
+	numbers = [1,2,3,4,5,6,7,8,9,10]
+	print(numbers[0:4], numbers[:-6])
+	numbers.append(11)
+	print(numbers[-1:])
+	numbers.extend([12,13,14,15])
+	print(numbers)
+	del_index = random.choice(range(0,len(numbers)))
+	print('del_index[{}] = {}'.format(del_index, numbers[del_index]))
+	del numbers[del_index]
+	print(numbers)
+	while numbers:
+		numbers.pop()
+		print(numbers[-1:])
+
+def example_013():
+	arr = [3, 5, 4, 1, 1, 4, 5, 2, 2, 3]
+	# remove duplicate	
+	def remove_duplicate_values(arr):
+		new_arr = []
+		for i in range(0,len(arr)):			
+			print("{} - {}".format(new_arr, arr[i:]))
+			if len(new_arr) and new_arr[-1] == arr[i]:
+				new_arr.pop()
+			else:
+				new_arr.append(arr[i])
+		return new_arr
+	print(remove_duplicate_values(arr))
+
 def hello(*names):
 	for name in names:
 		print("Hello", name)
@@ -340,4 +418,7 @@ if __name__ == '__main__':
     example_008()
     example_009()
     example_010()
+    example_011()
+    example_012()
+    example_013()
 # See PyCharm help at https://www.jetbrains.com/help/pycharm/
